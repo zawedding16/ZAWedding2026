@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='9' y='9' width='14' height='14' rx='1' transform='rotate(45 16 16)' fill='%23C9A84C'/%3E%3C/svg%3E" type="image/svg+xml">
+
+  <title>Angie & Zack — Groomsmen</title>
+  <script>try{var s=localStorage.getItem("theme"),q=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||q);}catch(e){}</script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <!-- Force 6 cards in one row on desktop, 2 cols on mobile -->
+  <style>
+    @media (min-width: 721px) {
+      .people-grid {
+        grid-template-columns: repeat(6, 1fr) !important;
+        max-width: 1320px !important;
+      }
+    }
+    @media (max-width: 720px) {
+      .people-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+    <nav id="main-nav">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="our-journey.html">Our Journey</a>
+      <a href="groomsmen.html" class="active">The Groomsmen</a>
+      <a href="bridesmaids.html">The Bridesmaids</a>
+      <a href="registry.html">Registry</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="details.html">Details</a>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <section class="hero" style="background-image: url('Images/Main-Page.jpg'); height: 60vh;">
+    <div class="hero-content">
+      <h1>The Groomsmen</h1>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section">
+    <div class="people-intro">
+      <p>Zack is honored to be surrounded by a band of loyal brothers and steadfast friends. Each of these gentlemen has played a pivotal role in his life, offering support, laughter and plenty of unforgettable adventures. Get to know the groomsmen who will be standing alongside him on this special day.</p>
+    </div>
+
+    <!-- Grid of groomsmen -->
+    <div class="people-grid">
+      <div class="person-card"
+           data-img="Images/Groomsmen/tyler.jpg"
+           data-name="Tyler"
+           data-title="Co-Best Man & Brother"
+           data-bio="This is where you can share how you met Tyler, what he means to you, and why he holds such a special place in your lives. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Groomsmen/tyler.jpg" alt="Tyler" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Tyler</span><span class="person-title">Co-Best Man & Brother</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Groomsmen/nick.jpg"
+           data-name="Nick"
+           data-title="Co-Best Man & Brother"
+           data-bio="This is where you can share how you met Nick, what he means to you, and why he holds such a special place in your lives. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Groomsmen/nick.jpg" alt="Nick" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Nick</span><span class="person-title">Co-Best Man & Brother</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Groomsmen/dakota.jpg"
+           data-name="Dakota"
+           data-title="Groomsman"
+           data-bio="This is where you can share how you met Dakota, what he means to you, and why he holds such a special place in your lives. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Groomsmen/dakota.jpg" alt="Dakota" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Dakota</span><span class="person-title">Groomsman</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Groomsmen/sebby.jpg"
+           data-name="Sebby"
+           data-title="Groomsman"
+           data-bio="This is where you can share how you met Sebby, what he means to you, and why he holds such a special place in your lives. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Groomsmen/sebby.jpg" alt="Sebby" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Sebby</span><span class="person-title">Groomsman</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Groomsmen/matt.jpg"
+           data-name="Matt"
+           data-title="Groomsman"
+           data-bio="This is where you can share how you met Matt, what he means to you, and why he holds such a special place in your lives. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Groomsmen/matt.jpg" alt="Matt" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Matt</span><span class="person-title">Groomsman</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Groomsmen/brayden.jpg"
+           data-name="Brayden"
+           data-title="Groomsman"
+           data-bio="This is where you can share how you met Brayden, what he means to you, and why he holds such a special place in your lives. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Groomsmen/brayden.jpg" alt="Brayden" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Brayden</span><span class="person-title">Groomsman</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Person Lightbox -->
+  <div class="person-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Person details">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <div class="person-lightbox-content">
+      <div class="person-lightbox-photo">
+        <img id="lightbox-img" src="" alt="">
+      </div>
+      <div class="person-lightbox-text">
+        <h2 id="lightbox-name"></h2>
+        <h4 id="lightbox-title"></h4>
+        <p id="lightbox-bio"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Angie Bryant & Zack McCollum. All rights reserved.
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">&#8679;</button>
+</body>
+</html>

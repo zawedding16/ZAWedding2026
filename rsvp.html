@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='9' y='9' width='14' height='14' rx='1' transform='rotate(45 16 16)' fill='%23C9A84C'/%3E%3C/svg%3E" type="image/svg+xml">
+
+  <title>Angie &amp; Zack — RSVP</title>
+  <script>try{var s=localStorage.getItem("theme"),q=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||q);}catch(e){}</script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    .rsvp-layout{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;justify-content:center;max-width:1100px;margin:0 auto}
+
+    /* Shared gold-corner card style — matches person-card frame */
+    .corner-card{
+      background: var(--ivory);
+      border: 1px solid var(--gold-pale);
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(44,74,46,0.06);
+      position: relative;
+      overflow: visible;
+    }
+    .corner-card::before,
+    .corner-card::after {
+      content: '';
+      position: absolute;
+      width: 18px; height: 18px;
+      border-color: rgba(201, 168, 76, 0.6);
+      border-style: solid;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .corner-card::before { top: 6px; left: 6px; border-width: 1.5px 0 0 1.5px; }
+    .corner-card::after  { bottom: 6px; right: 6px; border-width: 0 1.5px 1.5px 0; }
+
+    /* QR side */
+    .rsvp-qr-side{display:flex;flex-direction:column;align-items:center;gap:12px;flex:0 0 auto}
+    .qr-card{
+      padding:10px 10px 14px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+    }
+    .qr-inner{
+      width:100%;
+      border-radius:8px;
+      overflow:hidden;
+      background:var(--white);
+      border:1px solid rgba(172,189,161,.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px;
+      box-sizing:border-box;
+    }
+    #qr-code canvas,#qr-code img{display:block}
+    .qr-label{font-size:.85rem;color:#5a6e5a;text-align:center;max-width:220px;line-height:1.5;margin:0}
+    .rsvp-direct-link{
+      font-size:.88rem;
+      color:#5a6e5a;
+      text-align:center;
+      margin:0;
+      padding: 10px 16px;
+      background: var(--ivory);
+      border: 1px solid var(--gold-pale);
+      border-radius: 3px;
+      box-shadow: 0 2px 10px rgba(44,74,46,0.06);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .rsvp-direct-link a{color:#2f4f2f;font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+    .rsvp-direct-link a:hover{color:#C9A84C}
+
+    /* Form side */
+    .rsvp-form-side{flex:1;min-width:320px}
+    .form-outer{padding:10px}
+    .form-inner{
+      border-radius:8px;
+      overflow:hidden;
+      background:var(--white);
+      border:1px solid rgba(172,189,161,.4);
+    }
+    .form-inner iframe{display:block;border:none;width:100%;height:820px}
+
+    @media(max-width:700px){
+      .rsvp-layout{flex-direction:column;align-items:center}
+      .rsvp-form-side{min-width:0;width:100%}
+    }
+  </style>
+</head>
+<body>
+    <nav id="main-nav">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="our-journey.html">Our Journey</a>
+      <a href="groomsmen.html">The Groomsmen</a>
+      <a href="bridesmaids.html">The Bridesmaids</a>
+      <a href="registry.html">Registry</a>
+      <a href="rsvp.html" class="active">RSVP</a>
+      <a href="details.html">Details</a>
+    </div>
+  </nav>
+
+  <section class="hero" style="background-image: url('Images/Main-Page.jpg'); height: 60vh;">
+    <div class="hero-content"><h1>RSVP</h1></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">We Can't Wait to Celebrate With You!</h2>
+    <p style="text-align:center;font-family:var(--font-display);font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--forest);margin:0 auto 8px;max-width:640px;letter-spacing:0.02em;">
+      Please RSVP by <strong style="color:var(--gold);">September 1, 2026</strong>
+    </p>
+    <p style="text-align:center;max-width:640px;margin:0 auto 40px;color:var(--ink-soft);font-size:0.95rem;">
+      Scan the QR code with your phone camera, or fill out the form directly on this page.
+    </p>
+    <div class="rsvp-layout">
+      <div class="rsvp-qr-side">
+        <div class="qr-card corner-card">
+          <div class="qr-inner"><div id="qr-code"></div></div>
+          <p class="qr-label">Point your phone camera at this code to open the RSVP form instantly.</p>
+        </div>
+        <p class="rsvp-direct-link">Form not loading? <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-vWtGBS5ua4kAmwZfpBMJbug2Ea7ysRIPh4ysD8pjlqFnUg/viewform" target="_blank" rel="noopener noreferrer">Open it directly →</a></p>
+      </div>
+      <div class="rsvp-form-side">
+        <div class="form-outer corner-card">
+          <div class="form-inner">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc-vWtGBS5ua4kAmwZfpBMJbug2Ea7ysRIPh4ysD8pjlqFnUg/viewform?embedded=true" title="Angie &amp; Zack Wedding RSVP Form" loading="lazy">Loading RSVP form...</iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add to Calendar -->
+  <section class="section reveal-on-scroll" style="text-align:center; padding: 48px 24px;">
+    <div class="cal-buttons">
+      <p class="cal-label">While you're here — save the date!</p>
+      <div class="cal-links">
+        <a class="cal-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Angie+%26+Zack%27s+Wedding&dates=20261019T203000Z/20261020T030000Z&details=Join+us+as+we+celebrate+our+wedding!+Ceremony+begins+at+3%3A30+PM.&location=Arrowwood+Weddings+%2B+Events%2C+545+Loma+Linda+Rd%2C+Palmer%2C+TX+75152" target="_blank" rel="noopener noreferrer">Google Calendar</a>
+        <a class="cal-btn" download="angie-and-zack-wedding.ics" href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20261019T153000%0ADTEND:20261020T220000%0ASUMMARY:Angie%20%26%20Zack's%20Wedding%0ADESCRIPTION:Join%20us!%20Ceremony%20at%203%3A30%20PM.%0ALOCATION:Arrowwood%20Weddings%20%2B%20Events%2C%20545%20Loma%20Linda%20Rd%2C%20Palmer%2C%20TX%2075152%0AEND:VEVENT%0AEND:VCALENDAR">Apple / Outlook</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Angie Bryant &amp; Zack McCollum. All rights reserved.</footer>
+
+  <script>
+    new QRCode(document.getElementById("qr-code"), {
+      text: "https://docs.google.com/forms/d/e/1FAIpQLSc-vWtGBS5ua4kAmwZfpBMJbug2Ea7ysRIPh4ysD8pjlqFnUg/viewform",
+      width: 220,
+      height: 220,
+      colorDark: "#2d2d2d",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  </script>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">&#8679;</button>
+</body>
+</html>

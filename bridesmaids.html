@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='9' y='9' width='14' height='14' rx='1' transform='rotate(45 16 16)' fill='%23C9A84C'/%3E%3C/svg%3E" type="image/svg+xml">
+
+  <title>Angie & Zack — Bridesmaids</title>
+  <script>try{var s=localStorage.getItem("theme"),q=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",s||q);}catch(e){}</script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+    <nav id="main-nav">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="our-journey.html">Our Journey</a>
+      <a href="groomsmen.html">The Groomsmen</a>
+      <a href="bridesmaids.html" class="active">The Bridesmaids</a>
+      <a href="registry.html">Registry</a>
+      <a href="rsvp.html">RSVP</a>
+      <a href="details.html">Details</a>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <section class="hero" style="background-image: url('Images/Main-Page.jpg'); height: 60vh;">
+    <div class="hero-content">
+      <h1>The Bridesmaids</h1>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section">
+    <div class="people-intro">
+      <p>Angie is grateful to share her big day with a group of extraordinary friends and family members. Each of these individuals has touched her heart in unique ways, offering friendship, support and plenty of laughs along the way. Learn more about the bridesmaids and bridesmen who will accompany her down the aisle.</p>
+    </div>
+
+    <!-- Grid of bridesmaids -->
+    <div class="people-grid">
+      <div class="person-card"
+           data-img="Images/Bridesmaids/belle.jpg"
+           data-name="Belle"
+           data-title="Co-Maid of Honor"
+           data-bio="This is where you can share how you met Belle, what she means to you, and why she holds such a special place in your heart. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Bridesmaids/belle.jpg" alt="Belle" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Belle</span><span class="person-title">Co-Maid of Honor</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Bridesmaids/lane.jpg"
+           data-name="Lane"
+           data-title="Co-Maid of Honor"
+           data-bio="This is where you can share how you met Lane, what she means to you, and why she holds such a special place in your heart. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Bridesmaids/lane.jpg" alt="Lane" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Lane</span><span class="person-title">Co-Maid of Honor</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Bridesmaids/riley.jpg"
+           data-name="Riley"
+           data-title="Bridesmaid"
+           data-bio="This is where you can share how you met Riley, what she means to you, and why she holds such a special place in your heart. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Bridesmaids/riley.jpg" alt="Riley" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Riley</span><span class="person-title">Bridesmaid</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Bridesmaids/miranda.jpg"
+           data-name="Miranda"
+           data-title="Bridesmaid"
+           data-bio="This is where you can share how you met Miranda, what she means to you, and why she holds such a special place in your heart. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Bridesmaids/miranda.jpg" alt="Miranda" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Miranda</span><span class="person-title">Bridesmaid</span></div>
+      </div>
+      <div class="person-card"
+           data-img="Images/Bridesmaids/andrew.jpg"
+           data-name="Andrew"
+           data-title="Bridesman & Brother"
+           data-bio="This is where you can share how you met Andrew, what he means to you, and why he holds such a special place in your heart. Replace this placeholder with your own story!">
+        <div class="person-card-photo"><img src="Images/Bridesmaids/andrew.jpg" alt="Andrew" onerror="this.closest('.person-card-photo').classList.add('no-photo')"></div>
+        <div class="person-card-info"><span class="person-name">Andrew</span><span class="person-title">Bridesman & Brother</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Person Lightbox -->
+  <div class="person-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Person details">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <div class="person-lightbox-content">
+      <div class="person-lightbox-photo">
+        <img id="lightbox-img" src="" alt="">
+      </div>
+      <div class="person-lightbox-text">
+        <h2 id="lightbox-name"></h2>
+        <h4 id="lightbox-title"></h4>
+        <p id="lightbox-bio"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Angie Bryant & Zack McCollum. All rights reserved.
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">&#8679;</button>
+</body>
+</html>
