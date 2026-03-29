@@ -147,11 +147,24 @@ const lightbox      = document.getElementById('lightbox');
 const lightboxImg   = document.getElementById('lightbox-img');
 const lightboxClose = document.getElementById('lightbox-close');
 
+// Scroll-lock helpers — prevent background scroll without affecting layout
+let _scrollY = 0;
+function lockScroll() {
+  _scrollY = window.scrollY;
+  document.body.style.overflow = 'hidden';
+  document.body.style.height = '100%';
+}
+function unlockScroll() {
+  document.body.style.overflow = '';
+  document.body.style.height = '';
+  window.scrollTo(0, _scrollY);
+}
+
 function closeLightbox() {
   if (!lightbox) return;
   lightbox.classList.remove('open');
   if (lightboxImg) lightboxImg.src = '';
-  document.body.style.overflow = '';
+  unlockScroll();
 }
 
 // Person lightbox (bridesmaids / groomsmen)
@@ -166,8 +179,10 @@ function openPersonLightbox(card) {
   if (lightboxName)  lightboxName.textContent  = card.dataset.name  || '';
   if (lightboxTitle) lightboxTitle.textContent = card.dataset.title || '';
   if (lightboxBio)   lightboxBio.textContent   = card.dataset.bio   || '';
+  // Apply per-photo position (reads data-pos from card, e.g. data-pos="25% center")
+  lightboxImg.style.objectPosition = card.dataset.pos || 'center top';
+  lockScroll();
   lightbox.classList.add('open');
-  document.body.style.overflow = 'hidden';
 }
 
 // Standard lightbox (memory cells / feature cards)
@@ -178,8 +193,8 @@ function openLightbox(imgSrc, caption) {
   lightboxImg.src = imgSrc;
   lightboxImg.alt = caption;
   if (lightboxCap) lightboxCap.textContent = caption;
+  lockScroll();
   lightbox.classList.add('open');
-  document.body.style.overflow = 'hidden';
 }
 
 // Wire up person cards
@@ -195,10 +210,9 @@ document.querySelectorAll('.memory-cell[data-name], .feature-card[data-name]').f
     lightboxImg.alt = cell.dataset.name || '';
     if (lightboxName) lightboxName.textContent  = cell.dataset.name    || '';
     if (lightboxBio)  lightboxBio.textContent   = cell.dataset.caption || '';
-    // Hide title subheader for highlights (no role/title field)
     if (lightboxTitle) lightboxTitle.textContent = '';
+    lockScroll();
     lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
   });
 });
 

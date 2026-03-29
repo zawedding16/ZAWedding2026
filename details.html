@@ -37,13 +37,18 @@
       position: relative;
     }
 
-    /* Alternating left / right */
-    .timeline-item:nth-child(odd) {
+    /* All items flow left-to-right — HTML already places content on the correct side */
+    .timeline-item {
       flex-direction: row;
+    }
+
+    /* Left-side content (odd items): right-align so text flows into the center node */
+    .timeline-item:nth-child(odd) .timeline-body:first-child {
       text-align: right;
     }
-    .timeline-item:nth-child(even) {
-      flex-direction: row-reverse;
+
+    /* Right-side content (even items): left-align so text flows away from center node */
+    .timeline-item:nth-child(even) .timeline-body:last-child {
       text-align: left;
     }
 
@@ -159,10 +164,15 @@
       .timeline-item:nth-child(odd),
       .timeline-item:nth-child(even) {
         flex-direction: row !important;
-        text-align: left !important;
         gap: 18px;
         padding-left: 36px;
         position: relative;
+      }
+
+      /* Override per-side text-align rules on mobile */
+      .timeline-item:nth-child(odd) .timeline-body:first-child,
+      .timeline-item:nth-child(even) .timeline-body:last-child {
+        text-align: left !important;
       }
 
       /* Hide the empty spacer half-columns */
@@ -259,7 +269,7 @@
         <div class="timeline-body">
           <span class="timeline-time">6:00 PM</span>
           <p class="timeline-event">Dinner &amp; Toasts</p>
-          <p class="timeline-desc">A delicious meal followed by heartfelt words from our wedding party.</p>
+          <p class="timeline-desc">A delicious meal, provided by pizza, followed by heartfelt words from the Bet-Men, Maids of Honor, and parents.</p>
         </div>
         <div class="timeline-node"></div>
         <div class="timeline-body"></div>
@@ -271,7 +281,7 @@
         <div class="timeline-body">
           <span class="timeline-time">7:30 PM</span>
           <p class="timeline-event">First Dance &amp; Dancing</p>
-          <p class="timeline-desc">The floor is yours — let's celebrate all night long.</p>
+          <p class="timeline-desc">The floor is yours — let's celebrate!!</p>
         </div>
       </div>
 
@@ -304,7 +314,7 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <p>We'd love for our guests to dress in <strong>cocktail / semi-formal</strong> attire. Think dresses, dress pants with a blazer, or a suit. Please avoid white or ivory, as those are reserved for the bride!</p>
+          <p>We'd love for our guests to dress in <strong>cocktail / semi-formal</strong> attire. Think dresses, dress pants with a blazer, or a suit. Please <strong>DO NOT</strong> white or ivory, as those are reserved for the bride!</p>
         </div>
       </div>
 
@@ -314,7 +324,7 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <p>We recommend arriving by <strong>3:00 PM</strong> to allow time to park and get seated comfortably before the ceremony begins at 3:30 PM. The doors will be closed once the processional starts.</p>
+          <p>We recommend arriving by <strong>3:00 PM</strong> to allow time to park and get seated comfortably before the ceremony begins at 3:30 PM. The Ceremony will be closed once the processional starts.</p>
         </div>
       </div>
 
@@ -334,7 +344,7 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <p>We love your little ones, but we've decided to keep our celebration <strong>adults only</strong> (18+) so that everyone — including you — can relax and enjoy the evening. We appreciate your understanding!</p>
+          <p>Children are welcome! please be sure to include them in your RSVP!</p>
         </div>
       </div>
 
@@ -344,7 +354,7 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <p>Yes! We will have a <strong>full open bar</strong> during cocktail hour and the reception. Please drink responsibly and consider arranging a designated driver or rideshare if needed.</p>
+          <p>Yes! We will have an <strong>open bar</strong> during cocktail hour and the reception. Please drink responsibly and consider arranging a designated driver or rideshare if needed. We will also be serving our signature cocktails as well!</p>
         </div>
       </div>
 
@@ -354,7 +364,7 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <p>We are having an <strong>unplugged ceremony</strong> — please keep phones and cameras put away so you can be fully present in the moment. Our photographer will capture everything! Feel free to snap away during cocktail hour and the reception.</p>
+          <p>We are having an <strong>unplugged ceremony</strong> — please keep phones and cameras put away so you can be fully present in the moment. Our photographer(s) will capture everything! Feel free to snap away during cocktail hour and the reception.</p>
         </div>
       </div>
 

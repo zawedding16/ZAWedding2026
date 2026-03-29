@@ -1024,16 +1024,23 @@ nav a.active::after { transform: scaleX(1); }
 .person-lightbox {
   display: none;
   position: fixed;
-  inset: 0;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(20, 32, 14, 0.88);
   z-index: 200;
+  /* Centering lives here on the overlay, NOT on the child */
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   padding: 24px;
 }
-.person-lightbox.open { display: flex; }
+.person-lightbox.open {
+  display: flex;
+}
 
 .person-lightbox-content {
+  /* No position:fixed here — let the overlay flex-center it */
   position: relative;
   display: flex;
   flex-direction: row;
@@ -1044,7 +1051,8 @@ nav a.active::after { transform: scaleX(1); }
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 12px 60px rgba(0,0,0,0.5);
-  max-height: 90vh;
+  max-height: calc(100vh - 48px);
+  flex-shrink: 0;
 }
 
 /* Decorative corner lines on lightbox */
@@ -1063,7 +1071,7 @@ nav a.active::after { transform: scaleX(1); }
   overflow: hidden;
   background: var(--ivory-deep);
 }
-.person-lightbox-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.person-lightbox-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 
 .person-lightbox-text {
   flex: 1;
@@ -1363,17 +1371,14 @@ footer::before {
 /* ── Page Transitions ─────────────────────────────────────────── */
 html {
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 html.page-loaded {
   opacity: 1;
-  transform: translateY(0);
 }
 html.page-fade-out {
   opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity 0.26s ease, transform 0.26s ease;
+  transition: opacity 0.26s ease;
 }
 
 /* ── Scroll Reveal ────────────────────────────────────────────── */
@@ -1399,8 +1404,10 @@ a:hover { color: var(--gold); }
   .profile-section img { width: 100%; max-width: 320px; }
   .people-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .people-grid .person-card:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: calc(50% - 7px); margin: 0 auto; }
-  .person-lightbox-content { flex-direction: column; }
-  .person-lightbox-photo { flex: 0 0 220px; min-height: 220px; }
+  .person-lightbox { padding: 16px; }
+  .person-lightbox-content { flex-direction: column; max-height: calc(100vh - 32px); overflow-y: auto; }
+  .person-lightbox-photo { flex: 0 0 220px; height: 220px; min-height: 0; width: 100%; }
+  .person-lightbox-text { padding: 24px 20px; }
   .highlights-feature { gap: 16px; }
   .feature-card { flex: 0 1 280px; }
 }
