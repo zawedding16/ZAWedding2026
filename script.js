@@ -128,19 +128,21 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 // ── Scroll reveal ─────────────────────────────────────────────
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+});
 
 // ── Lightbox (highlights / memory cells) ─────────────────────
 const lightbox      = document.getElementById('lightbox');
@@ -199,7 +201,15 @@ function openLightbox(imgSrc, caption) {
 
 // Wire up person cards
 document.querySelectorAll('.person-card[data-name]').forEach(card => {
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
   card.addEventListener('click', () => openPersonLightbox(card));
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openPersonLightbox(card);
+    }
+  });
 });
 
 // Wire up memory/feature cards (highlights)
