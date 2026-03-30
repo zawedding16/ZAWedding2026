@@ -1044,7 +1044,7 @@ nav a.active::after { transform: scaleX(1); }
   position: relative;
   display: flex;
   flex-direction: row;
-  max-width: 820px;
+  max-width: 980px;
   width: 100%;
   background: var(--ivory);
   border: 1px solid var(--gold-pale);
@@ -1066,8 +1066,8 @@ nav a.active::after { transform: scaleX(1); }
 }
 
 .person-lightbox-photo {
-  flex: 0 0 300px;
-  min-height: 360px;
+  flex: 0 0 360px;
+  min-height: 400px;
   overflow: hidden;
   background: var(--ivory-deep);
 }
