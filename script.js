@@ -127,6 +127,20 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+// ── FAQ Accordion ─────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', e => {
+      // Stop the click from bubbling to the page fade-out handler
+      e.stopPropagation();
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+});
+
 // ── Scroll reveal ─────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver(
