@@ -966,7 +966,8 @@ nav a.active::after { transform: scaleX(1); }
 /* ── People Grid (Bridesmaids / Groomsmen) ────────────────────── */
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 200px));
+  justify-content: center;
   gap: 22px;
   max-width: 1100px;
   margin: 0 auto;
@@ -1402,7 +1403,7 @@ a:hover { color: var(--gold); }
   .hero::after { inset: 14px; }
   .profile-section { gap: 24px; }
   .profile-section img { width: 100%; max-width: 320px; }
-  .people-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .people-grid .person-card:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: calc(50% - 7px); margin: 0 auto; }
   .person-lightbox { padding: 16px; }
   .person-lightbox-content { flex-direction: column; max-height: calc(100vh - 32px); overflow-y: auto; }
@@ -1418,19 +1419,4 @@ a:hover { color: var(--gold); }
   .countdown-item { min-width: 0; flex: 1; padding: 8px 4px; }
   .countdown-item span { font-size: 1.4rem; }
   .countdown-item small { font-size: 0.54rem; letter-spacing: 0.1em; }
-}
-
-/* ── Groomsmen 6-col override support ────────────────────────── */
-@media (min-width: 900px) {
-  .people-grid[style*="repeat(6"] {
-    max-width: 1320px !important;
-  }
-}
-
-/* Force groomsmen back to 2 cols on mobile regardless of inline style */
-@media (max-width: 720px) {
-  .people-grid[style*="repeat(6"] {
-    grid-template-columns: repeat(2, 1fr) !important;
-    max-width: 100% !important;
-  }
 }
